@@ -52,27 +52,35 @@ const cleaned = cleanWhitespace('  hello   world  '); // 'hello world'
 ### Text Parser Functions
 
 #### `parseMention(text: string): string | null`
+
 Parses a Discord user mention and returns the user ID.
 
 #### `parseMentions(text: string): string[]`
+
 Parses multiple Discord user mentions and returns an array of user IDs.
 
 #### `parseChannelMention(text: string): string | null`
+
 Parses a Discord channel mention and returns the channel ID.
 
 #### `parseRoleMention(text: string): string | null`
+
 Parses a Discord role mention and returns the role ID.
 
 #### `escapeMarkdown(text: string): string`
+
 Escapes markdown special characters in text.
 
 #### `truncateText(text: string, maxLength: number, ellipsis?: string): string`
+
 Truncates text to the specified length, appending an ellipsis (default: '...').
 
 #### `capitalizeFirst(text: string): string`
+
 Capitalizes the first letter of a string.
 
 #### `cleanWhitespace(text: string): string`
+
 Removes extra whitespace from text and trims leading/trailing spaces.
 
 ## Development
@@ -106,6 +114,7 @@ npm run build
 This package is automatically published to GitHub Packages when a new release is created on GitHub.
 
 To create a new release:
+
 1. Update the version in `package.json`
 2. Create a new tag: `git tag v1.0.0`
 3. Push the tag: `git push origin v1.0.0`

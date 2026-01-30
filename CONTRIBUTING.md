@@ -5,22 +5,26 @@ Thank you for your interest in contributing to this project!
 ## Development Setup
 
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/Welcomer-Bot/utils.git
 cd utils
 ```
 
-2. Install dependencies:
+1. Install dependencies:
+
 ```bash
 npm install
 ```
 
-3. Run tests:
+1. Run tests:
+
 ```bash
 npm test
 ```
 
-4. Build the project:
+1. Build the project:
+
 ```bash
 npm run build
 ```
