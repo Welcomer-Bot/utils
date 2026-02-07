@@ -1,4 +1,13 @@
-import { APIGuild, APIGuildMember } from "discord-api-types/v10";
+import { APIGuild, APIGuildMember, APIUser } from "discord-api-types/v10";
+
+export type Member = Pick<APIGuildMember, "user"> & {
+  user: Pick<
+    APIUser,
+    "id" | "username" | "discriminator" | "global_name" | "avatar"
+  >;
+};
+
+export type Guild = Pick<APIGuild, "id" | "name" | "approximate_member_count">;
 
 export const placeholders = {
   user: "User tag",
@@ -33,8 +42,8 @@ export const placeholderDescriptions = {
 
 export const replacePlaceholders = (
   text: string,
-  member: APIGuildMember,
-  guild: APIGuild,
+  member: Member,
+  guild: Guild,
   isText: boolean = true,
 ): string => {
   const user = member.user;
@@ -46,7 +55,7 @@ export const replacePlaceholders = (
     .replaceAll(/{discriminator}/g, user.discriminator)
     .replaceAll(
       /{avatar}/g,
-      member.avatar
+      user.avatar
         ? `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png`
         : "",
     )

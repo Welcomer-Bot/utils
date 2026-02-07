@@ -1,6 +1,6 @@
 {
   "name": "@welcomer-bot/utils",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Utilities for Welcomer client and bot, such as text parsers",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
