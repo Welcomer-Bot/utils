@@ -9,6 +9,11 @@ export type Member = Pick<APIGuildMember, "user"> & {
 
 export type Guild = Pick<APIGuild, "id" | "name" | "approximate_member_count">;
 
+export interface VariableHint {
+  variable: string;
+  description: string;
+}
+
 export const placeholders = {
   user: "User tag",
   username: "Username",
@@ -76,3 +81,20 @@ export const replacePlaceholders = (
 function formatMemberCount(count: number): string {
   return count.toLocaleString();
 }
+
+/**
+ * All available variable hints for placeholder substitution.
+ * Sorted by usage frequency and context.
+ */
+export const variableHints: VariableHint[] = [
+  { variable: "{user}", description: "User mention" },
+  { variable: "{username}", description: "Username" },
+  { variable: "{globalName}", description: "Global name" },
+  { variable: "{id}", description: "User ID" },
+  { variable: "{discriminator}", description: "User discriminator" },
+  { variable: "{avatar}", description: "Avatar URL" },
+  { variable: "{guild}", description: "Server name" },
+  { variable: "{guildId}", description: "Guild ID" },
+  { variable: "{memberCount}", description: "Member count" },
+  { variable: "{memberCountFormatted}", description: "Formatted member count" },
+];
