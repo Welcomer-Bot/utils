@@ -1,4 +1,4 @@
-import { APIGuild, APIGuildMember, APIUser } from "discord-api-types/v10";
+import { APIGuildMember, APIUser, GatewayGuildCreateDispatchData } from "discord-api-types/v10";
 
 export type Member = Pick<APIGuildMember, "user"> & {
   user: Pick<
@@ -7,7 +7,7 @@ export type Member = Pick<APIGuildMember, "user"> & {
   >;
 };
 
-export type Guild = Pick<APIGuild, "id" | "name" | "approximate_member_count">;
+export type Guild = Pick<GatewayGuildCreateDispatchData, "id" | "name" | "member_count">;
 
 export interface VariableHint {
   variable: string;
@@ -70,11 +70,11 @@ export const replacePlaceholders = (
     .replaceAll(/{channelId}/g, `{channelId}`)
     .replaceAll(
       /{memberCount}/g,
-      guild.approximate_member_count?.toString() || "0",
+      guild.member_count?.toString() || "0",
     )
     .replaceAll(
       /{memberCountFormatted}/g,
-      formatMemberCount(guild.approximate_member_count || 0),
+      formatMemberCount(guild.member_count || 0),
     );
 };
 
